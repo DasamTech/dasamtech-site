@@ -1,61 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Site do Darlan Moisés</title>
+  <meta charset="UTF-8" />
+  <title>DasamTech - Assistência Técnica</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      background: url('file:///E:/darlan/logo-dasamtech.png') no-repeat center center fixed;
+      background-size: cover;
       text-align: center;
-      padding: 50px;
+      padding: 40px;
       color: #333;
+      backdrop-filter: brightness(0.7);
+      margin: 0;
     }
+
+    img.logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
     h1 {
-      font-size: 2.5em;
-      color: #0077cc;
+      color: #003366;
+      margin-bottom: 10px;
     }
+
+    h2 {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
     .box {
-      background-color: #ffffff;
-      padding: 30px;
-      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 25px;
+      margin: 30px auto;
       width: 400px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .phrase {
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #444;
+      margin-bottom: 20px;
     }
+
+    .button {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    .button:hover {
+      background-color: #005fa3;
+    }
+
     footer {
       margin-top: 50px;
       font-size: 0.9em;
       color: #888;
     }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    input[type='submit'] {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type='submit']:hover {
+      background-color: #218838;
+    }
   </style>
 </head>
 <body>
-  <h1> Darlan Moisés Marques Damasceno</h1>
+  <!-- Logo -->
+  <img src="logo-dasamtech.png" alt="Logo DasamTech" class="logo" />
 
+  <!-- Nome e descrição -->
+  <h1>DasamTech</h1>
+  <h2>Assistência técnica em impressoras e computadores</h2>
+
+  <!-- Frase aleatória -->
   <div class="box">
     <p class="phrase" id="randomPhrase">Carregando frase...</p>
+    <button class="button" id="newPhraseBtn">Nova Frase</button>
   </div>
 
+  <!-- WhatsApp -->
+  <a href="https://wa.me/5538988464258" target="_blank" class="button"
+    >Entrar em contato via WhatsApp</a
+  >
+
+  <!-- Formulário de Contato -->
+  <h3>Entre em contato</h3>
+  <form action="https://formspree.io/f/xxxxx" method="POST">
+    <input type="text" name="nome" placeholder="Seu nome" required /><br />
+    <input type="email" name="email" placeholder="Seu email" required /><br />
+    <textarea
+      name="mensagem"
+      placeholder="Sua mensagem"
+      rows="5"
+      required
+    ></textarea
+    ><br />
+    <input type="submit" value="Enviar Mensagem" />
+  </form>
+
+  <!-- Rodapé -->
   <footer>
-    &copy; 2025 - Darlan M. M. Damasceno
+    Contato: (38) 98846-4258<br />
+    &copy; 2025 - DasamTech
   </footer>
 
+  <!-- Script de frase aleatória -->
   <script>
     const frases = [
-      "agradeço sua visita!",
-      "Clique F5 e descubra outra frase!"
+      "Bem-vindo à DasamTech, onde a tecnologia volta a funcionar.",
+      "Seu computador ou impressora com problemas? A gente resolve!",
+      "Confiança e agilidade em assistência técnica.",
+      "Deu erro? Chama a DasamTech!",
+      "Impressoras ou PCs lentos? Traz pra gente!",
+      "Serviço técnico confiável é aqui!",
+      "Seu equipamento, nosso cuidado.",
+      "Mais de 100 clientes satisfeitos em 2025!",
+      "DasamTech: tecnologia com qualidade.",
+      "Fale conosco e resolvemos pra você!",
     ];
 
-    // Escolhe uma frase aleatória
-    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-    
-    // Mostra no HTML
-    document.getElementById("randomPhrase").innerText = fraseAleatoria;
+    function gerarFrase() {
+      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+      document.getElementById("randomPhrase").innerText = fraseAleatoria;
+    }
+
+    gerarFrase();
+
+    document
+      .getElementById("newPhraseBtn")
+      .addEventListener("click", gerarFrase);
   </script>
 </body>
 </html>
